@@ -24,11 +24,30 @@ It intentionally contains some bugs, security issues, and code smells.
     ```bash
         python main.py
     ```
-5. Run tests:
+5. Installer l’outil de couverture
     ```bash
-        python -m unittest discover -s tests
+       pip install coverage
+    ```
+6. Run tests avec coverage:
+    ```bash
+    coverage run -m unittest discover -s tests
    ```
-   
-6. Scan it with SonarQube and SonarLint 
-7. Fix the issues
-8. Scan again to verify improvements
+- Lance tous les tests du dossier tests
+
+- Mesure quelles lignes de code sont exécutées
+
+- Remplace python -m unittest par une version avec analyse de couverture
+7. Afficher le rapport de couverture dans le terminal
+   ```bash
+      coverage report -m
+   ```
+8. Générer le rapport de couverture pour SonarQube
+     ```bash
+      coverage xml
+   ```
+     - Génère le fichier coverage.xml
+     - Format compatible avec SonarQube et GitLab CI
+     - Obligatoire pour que SonarQube prenne en compte la couverture
+9. Scan it with SonarQube and SonarLint 
+10. Fix the issues
+11. Scan again to verify improvements
